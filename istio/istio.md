@@ -1,16 +1,15 @@
 # Istio
 
-A Service Mesh manages communication between microservices, it is a pattern software design. Istio is an implementaion of that pattern, which is why we often hear that Istio is a service mesh.
+A Service Mesh manages communication between microservices, it is a pattern in software design. Istio is an implementaion of that pattern, which is why we often hear that Istio is a service mesh.
 
 ### Problem: Transitioning from a monolith to a microservice architecture
-- Suppose we are trying to deploy an online store using k8s cluster. This online store will have microservices such as payments, db, inventory.
+Suppose we are trying to deploy an online store using k8s cluster. This online store will have microservices such as payments, db, inventory.
 - Each microservice will be deployed as a separate pod with the following config:
     - Its own business logic
     - Ability to talk to other microservices
       - New microservice endpoints should be discoverable by all other microservices
     - Security logic for communication within the cluster
-    ##### Why do we need security inside the cluster?
-    From a security standpoint once you are in the cluster there is no protection because any service inside the cluster can talk to any other service inside the cluster. You can setup firewalls and proxys outside the cluster to make it more secure but once you are in the cluster an attacker can access anything
+      - From a security standpoint once you are in the cluster there is no protection because any service inside the cluster can talk to any other service inside the cluster. You can setup firewalls and proxys outside the cluster to make it more secure but once you are in the cluster an attacker can access anything
     - Monitoring for our services
 
 All of the above logic needs to configured for each microservice. Thus, developers can end up spending more time on configuration rather than building the actual product.
